@@ -14,7 +14,7 @@ const headerData = {
 export class AuthService {
   //perform dependency injection
 
-  api = '/api/users/';
+  api = '/api/customer/';
   constructor(private httpClient: HttpClient) {}
 
   registerUser(register: Register): Observable<any> {
@@ -22,10 +22,10 @@ export class AuthService {
   }
 
   loginUser(login: Login): Observable<any> {
-    return this.httpClient.post(this.api + 'login', login);
+    return this.httpClient.post(this.api + 'authenticate', login);
   }
 
-  createProfile(profile: CreateProfile): Observable<any>{
+  createProfile(profile: CreateProfile): Observable<any> {
     return this.httpClient.post(this.api + 'profile', profile);
   }
 }

@@ -9,67 +9,115 @@ import { Experience } from '../model/experience';
 import { Transaction } from '../model/transaction';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProfileService {
+  customerapi = '/api/customer';
 
-  api = '/api/profile';
+  constructor(private httpClient: HttpClient) {}
 
-  constructor(private httpClient: HttpClient) { }
-
-  getProfile(): Observable<any> {
-    return this.httpClient.get(this.api);
+  createProfile(profile: CreateProfile): Observable<any> {
+    return this.httpClient.post(this.customerapi, profile);
   }
 
-  createProfile(profile: CreateProfile): Observable<any>{
-    return this.httpClient.post(this.api, profile);
+  createBank(bank: Bank, id: string) {
+    return this.httpClient.post(this.customerapi + '/' + id + '/account', bank);
   }
 
-  createExperience(experience : Experience){
-    return this.httpClient.post(this.api+ '/experience', experience);
+  getBanks(id: string) {
+    return this.httpClient.get(this.customerapi + '/' + id + '/account');
   }
 
-  createEducation(education : Education){
-    return this.httpClient.post(this.api + '/education', education);
+  getBank(id: string) {
+    return this.httpClient.get(this.customerapi + '/' + id + '/account/' + id);
   }
 
-  deleteEducation(eduId : string){
-    return this.httpClient.delete(this.api + '/education/'+ eduId);
-  }
-  deleteExperience(expId : string){
-    return this.httpClient.delete(this.api + '/experience/'+ expId);
-  }
-
-  createBank(bank: Bank){
-    return this.httpClient.post(this.api + '/bank', bank);
+  createBeneficiary(beneficiary: Beneficiary, id: string) {
+    return this.httpClient.post(
+      this.customerapi + '/' + id + '/beneficiary',
+      beneficiary
+    );
   }
 
-  createBeneficiary(beneficiary: Beneficiary){
-    return this.httpClient.post(this.api + '/beneficiary', beneficiary);
+  getBeneficiaries(id: string) {
+    return this.httpClient.get(this.customerapi + '/' + id + '/beneficiary');
   }
 
-  deleteBeneficiary(benId: string){
-    return this.httpClient.delete(this.api + '/beneficiary/'+benId);
+  deleteBeneficiary(id: string) {
+    return this.httpClient.delete(
+      this.customerapi + '/' + id + '/beneficiary/' + id
+    );
   }
 
-  deleteBank(bankId : string){
-    return this.httpClient.delete(this.api + '/bank/'+bankId);
+  transfer(transaction: Transaction) {
+    return this.httpClient.put(this.customerapi + '/transfer', transaction);
   }
 
-  createTransaction(transaction: Transaction){
-    return this.httpClient.post(this.api+ '/transaction', transaction);
+  updatePassword(username: string, password: string) {
+    return this.httpClient.put(
+      this.customerapi + '/' + username + '/forgot/' + password,
+      null
+    );
   }
 
-  getBanks(){
-    return this.httpClient.get(this.api + '/banks/all');
+  questionVerification(username: string, answer: string) {
+    return this.httpClient.get(
+      this.customerapi + '/' + username + '/forgot/question/' + answer
+    );
   }
 
-  getAll(){
-    return this.httpClient.get(this.api + '/all');
-  }
+  // getProfile(): Observable<any> {
+  //   return this.httpClient.get(this.api);
+  // }
 
-  deleteUser(id: any){
-    return this.httpClient.delete(this.api+'/'+ id);
-  }
+  // createProfile(profile: CreateProfile): Observable<any> {
+  //   return this.httpClient.post(this.api, profile);
+  // }
 
+  // createExperience(experience: Experience) {
+  //   return this.httpClient.post(this.api + '/experience', experience);
+  // }
+
+  // createEducation(education: Education) {
+  //   return this.httpClient.post(this.api + '/education', education);
+  // }
+
+  // deleteEducation(eduId: string) {
+  //   return this.httpClient.delete(this.api + '/education/' + eduId);
+  // }
+  // deleteExperience(expId: string) {
+  //   return this.httpClient.delete(this.api + '/experience/' + expId);
+  // }
+
+  // createBank(bank: Bank) {
+  //   return this.httpClient.post(this.api + '/bank', bank);
+  // }
+
+  // createBeneficiary(beneficiary: Beneficiary) {
+  //   return this.httpClient.post(this.api + '/beneficiary', beneficiary);
+  // }
+
+  // deleteBeneficiary(benId: string) {
+  //   return this.httpClient.delete(this.api + '/beneficiary/' + benId);
+  // }
+
+  // deleteBank(bankId: string) {
+  //   return this.httpClient.delete(this.api + '/bank/' + bankId);
+  // }
+
+  // createTransaction(transaction: Transaction) {
+  //   return this.httpClient.post(this.api + '/transaction', transaction);
+  // }
+
+  // getBanks() {
+  //   return this.httpClient.get(this.api + '/banks/all');
+  // }
+
+  // getAll() {
+  //   return this.httpClient.get(this.api + '/all');
+  // }
+
+  // deleteUser(id: any) {
+  //   return this.httpClient.delete(this.api + '/' + id);
+  // }
 }

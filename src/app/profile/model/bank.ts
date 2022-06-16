@@ -1,8 +1,9 @@
-import { Transaction } from "./transaction";
+import { Transaction } from './transaction';
 
 export class Bank {
-    label: string;
-    balance: number;
-    type: string;
-    transactions: Transaction[];
+  label: string;
+  balance: number;
+  bankAccountType: string;
+  approve: boolean;
+  transactions: Transaction[];
 }

@@ -3,3 +3,4 @@ export class Staff {
     password: string;
     type: string;
 }
+
