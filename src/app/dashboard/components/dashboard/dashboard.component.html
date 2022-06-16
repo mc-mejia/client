@@ -1,10 +1,10 @@
 <section class="container">
   <br>
   <h1 class="large text-primary">Dashboard</h1>
-  <div *ngIf="profile != null && profile.user.name">
+  <div *ngIf="profile != null && profile.username">
     <p class="lead">
       <i class="fas fa-user"></i> Welcome
-      {{ profile != null && profile.user.name }}
+      {{ profile != null && profile.username }}
     </p>
 
     <div>{{ error.noprofile }}</div>
@@ -13,8 +13,8 @@
     <!-- <app-display-exp [exp]="profile.experience" (expId)="deleteExperience($event)"></app-display-exp>
     <app-display-edu [edu]="profile.education" (eduId)="deleteEducation($event)"></app-display-edu> -->
     <app-display-ben [ben]="profile.ben" [profile]="profile" (benId)="deleteBeneficiary($event)"></app-display-ben>
-    <app-display-bank [banks]="profile.banks" [profile]="profile" (delete)="deleteBankAccount($event)" ></app-display-bank>
-    <app-display-transactions [profile]="profile" [transactions]="profile.transactions" ></app-display-transactions>
+    <app-display-bank [banks]="profile.banks" [profile]="profile" ></app-display-bank>
+    <app-display-transactions [transactions]="profile.banks" [profile]="profile" ></app-display-transactions>
     
 
     <div class="my-2" *ngIf="error.noprofile == null">
@@ -28,7 +28,7 @@
   <div>
     <div *ngIf="error.noprofile != null">
       <a [routerLink]="['/profile/create-profile']" class="btn btn-danger"
-        >Create Profile</a
+        >Update Profile</a
       >
     </div>
   </div>
