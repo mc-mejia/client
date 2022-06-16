@@ -18,13 +18,13 @@ export class AddEducationComponent implements OnInit {
   }
 
   createEducationSubmit(){
-    this.profileService.createEducation(this.education).subscribe(
-      (res) => {
-        this.router.navigate(['/dashboard']);
-      },
-      (err) => {
-        this.error = err.error;
-      }
-    )
+    // this.profileService.createEducation(this.education).subscribe(
+    //   (res) => {
+    //     this.router.navigate(['/dashboard']);
+    //   },
+    //   (err) => {
+    //     this.error = err.error;
+    //   }
+    // )
   }
 }

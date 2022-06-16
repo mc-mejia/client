@@ -65,6 +65,19 @@
     </div>
     <div class="form-group">
       <input
+        type="text"
+        class="form-control form-control-lg"
+        placeholder="* 3056667777"
+        name="mobile"
+        value="Phone Number"
+        [(ngModel)]="register.phoneNo"
+      />
+      <small class="form-text text-muted"
+        >Numeric digits only</small
+      >
+    </div>
+    <div class="form-group">
+      <input
         type="password"
         placeholder="Password"
         name="password"

@@ -31,27 +31,27 @@ export class DashboardComponent implements OnInit {
   }
 
   deleteExperience(expId : string): void{
-    this.profileService.deleteExperience(expId).subscribe(
-      (res) =>{
-        console.log(JSON.stringify(res));
-      },
-      (err) => {
-        console.log(JSON.stringify(err));
-        this.profile = null;
-      }
-    );
+    // this.profileService.deleteExperience(expId).subscribe(
+    //   (res) =>{
+    //     console.log(JSON.stringify(res));
+    //   },
+    //   (err) => {
+    //     console.log(JSON.stringify(err));
+    //     this.profile = null;
+    //   }
+    // );
   }
 
   deleteEducation(eduId : string): void{
-    this.profileService.deleteEducation(eduId).subscribe(
-      (res) =>{
-        console.log(JSON.stringify(res));
-      },
-      (err) => {
-        console.log(JSON.stringify(err));
-        this.profile = null;
-      }
-    );
+    // this.profileService.deleteEducation(eduId).subscribe(
+    //   (res) =>{
+    //     console.log(JSON.stringify(res));
+    //   },
+    //   (err) => {
+    //     console.log(JSON.stringify(err));
+    //     this.profile = null;
+    //   }
+    // );
   }
 
   deleteBankAccount(bankId: string): void{
