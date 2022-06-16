@@ -16,16 +16,16 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   loginSubmit() {
-    console.log("Login object" + JSON.stringify(this.login));
+    console.log('Login object' + JSON.stringify(this.login));
     this.authService.loginUser(this.login).subscribe(
       (res) => {
         console.log(res.token);
-       localStorage.setItem('id', res._id); 
-        localStorage.setItem('token', res.token);
+        localStorage.setItem('id', res.id);
+        localStorage.setItem('token', JSON.stringify(res.accessToken));
         this.router.navigate(['/dashboard']);
       },
       (err) => {
-        console.log(JSON.stringify(err));
+        console.log(err);
         this.error = err.error;
       }
     );
