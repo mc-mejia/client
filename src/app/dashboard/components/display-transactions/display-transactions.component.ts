@@ -9,7 +9,9 @@ import { ProfileService } from 'src/app/profile/services/profile.service';
   styleUrls: ['./display-transactions.component.css']
 })
 export class DisplayTransactionsComponent implements OnInit {
-
+  //transfer methods in this component were for testing purposes only
+  //need: to clean this file up and remove methods that already exist
+  //      in create-transaction component
   bankAccount: any = {};
   @Input("profile")
   profile: any;

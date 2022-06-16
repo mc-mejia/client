@@ -11,7 +11,7 @@ import { ProfileService } from 'src/app/profile/services/profile.service';
   styleUrls: ['./display-ben.component.css']
 })
 export class DisplayBenComponent implements OnInit {
-
+  //this one looks good, no service calls to update
 
 
   @Input("ben") public ben: any;

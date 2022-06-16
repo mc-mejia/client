@@ -10,7 +10,9 @@ import { ProfileService } from '../../services/profile.service';
 })
 export class AddBeneficiaryComponent implements OnInit {
 
-  beneficiary: Beneficiary = new Beneficiary();
+  //new service method requires two parameters now
+  // need: customerid and beneficiary request body
+  beneficiary: any = {};
   error: any = {};
   constructor(private profileService: ProfileService, private router: Router) { }
 

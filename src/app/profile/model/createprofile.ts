@@ -2,7 +2,8 @@ import { Bank } from "./bank";
 import { Beneficiary } from "./beneficiary";
 import { Education } from "./education";
 import { Experience } from "./experience";
-
+//mirrors CustomerAccount from backend
+//name unchanged for time
 export class CreateProfile {
 
     // company: string;

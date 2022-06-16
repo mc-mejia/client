@@ -9,7 +9,9 @@ import { ProfileService } from 'src/app/profile/services/profile.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+  //the first things that get loaded once a user logs in
+  //need: service method calls to be updated to call getCustomerAccountById (backend method)
+  //      instead of getProfile (mongo backend) and the proper delete methods
   constructor(private router: Router, private profileService: ProfileService) { }
 
   profile : any = {};

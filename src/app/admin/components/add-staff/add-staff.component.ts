@@ -12,6 +12,8 @@ import { StaffService } from 'src/app/users/services/staff.service';
 })
 export class AddStaffComponent implements OnInit {
 
+  //this one looks good
+  
   staff: Staff = new Staff();
   constructor(private authService: AuthService, private staffService: StaffService, private router: Router) { }
 

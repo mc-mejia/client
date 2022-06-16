@@ -9,7 +9,8 @@ import { StaffService } from 'src/app/users/services/staff.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  //ideally, this component is redundant and staff can login on the same page as users
+  
   staff: Staff = new Staff();
   error: any = {};
 

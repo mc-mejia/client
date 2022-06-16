@@ -11,7 +11,8 @@ import { ProfileService } from '../../services/profile.service';
   styleUrls: ['./create-transaction.component.css']
 })
 export class CreateTransactionComponent implements OnInit {
-
+  //new service method is called transfer and does most of the work for you
+  //need: to simplify this component & possibly update html
   profile: any;
   bankAccount: any = {};
   transaction: Transaction = new Transaction();

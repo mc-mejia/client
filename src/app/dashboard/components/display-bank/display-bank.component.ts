@@ -10,7 +10,8 @@ import { ProfileService } from 'src/app/profile/services/profile.service';
   styleUrls: ['./display-bank.component.css']
 })
 export class DisplayBankComponent implements OnInit {
-
+    //this one looks good, no service calls to update
+    
   @Input("banks")
   banks: any[] = [];
 

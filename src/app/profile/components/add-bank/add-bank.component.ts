@@ -9,7 +9,10 @@ import { ProfileService } from '../../services/profile.service';
   styleUrls: ['./add-bank.component.css']
 })
 export class AddBankComponent implements OnInit {
-  bank: Bank = new Bank();
+    //new service method requires two parameters now
+  // need: customerid and bank request body
+  
+  bank: any = {};
   error : any = {};
   constructor(private profileService: ProfileService, private router: Router) { }
 
