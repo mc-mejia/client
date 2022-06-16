@@ -9,19 +9,22 @@ import { ProfileService } from '../../services/profile.service';
   styleUrls: ['./add-bank.component.css']
 })
 export class AddBankComponent implements OnInit {
+  // done, Maria
     //new service method requires two parameters now
   // need: customerid and bank request body
   
   bank: any = {};
+  id: any = {};
   error : any = {};
   constructor(private profileService: ProfileService, private router: Router) { }
 
   ngOnInit(): void {
+    this.id = localStorage.getItem('id');
   }
 
   createBankSubmit(){
     console.log(this.bank);
-    this.profileService.createBank(this.bank).subscribe(
+    this.profileService.createBank(this.bank, this.id).subscribe(
       (res) => {
         this.router.navigate(['/dashboard']);
       },

@@ -9,7 +9,8 @@ import { ProfileService } from '../../services/profile.service';
   styleUrls: ['./add-beneficiary.component.css']
 })
 export class AddBeneficiaryComponent implements OnInit {
-
+ //Done - Maria
+ 
   //new service method requires two parameters now
   // need: customerid and beneficiary request body
   beneficiary: any = {};
@@ -23,10 +24,8 @@ export class AddBeneficiaryComponent implements OnInit {
 
   createBeneficiarySubmit(){
     this.profileService.createBeneficiary(this.beneficiary, this.id).subscribe(
-      (res) => {
-        
+      (res) => {  
         this.router.navigate(['/dashboard']);
-        this.beneficiary = this.beneficiary as Beneficiary;
         console.log("Created the beneficiary" + this.beneficiary);
       },
       (err) => {
