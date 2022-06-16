@@ -29,14 +29,14 @@
             <tbody>
               <tr *ngFor="let p of profiles">
                 <td>
-                    {{p.handle}}
+                    {{p.username}}
                 </td>
                 <td>
                     {{p._id}}
                 </td>
                 <td>
                     <label class="switch">
-                      <input type="checkbox" checked (change)="deleteUser(p.user._id)">
+                      <input type="checkbox" checked (change)="toggleCustomer(p._id)">
                       <span class="slider"></span>
                     </label>
                     
