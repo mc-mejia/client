@@ -9,6 +9,9 @@ import { ProfileService } from '../../services/profile.service';
   styleUrls: ['./create-profile.component.css']
 })
 export class CreateProfileComponent implements OnInit {
+  //this component should be good to go
+  //need: tests
+  
   profile: CreateProfile = new CreateProfile();
   error: any = {};
 

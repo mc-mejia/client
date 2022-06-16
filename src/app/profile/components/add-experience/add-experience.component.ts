@@ -18,14 +18,14 @@ export class AddExperienceComponent implements OnInit {
   }
 
   createExperienceSubmit(){
-    this.profileService.createExperience(this.experience).subscribe(
-      (res) => {
-        this.router.navigate(['/dashboard']);
-      },
-      (err) => {
-        this.error = err.error;
-      }
-    )
+    // this.profileService.createExperience(this.experience).subscribe(
+    //   (res) => {
+    //     this.router.navigate(['/dashboard']);
+    //   },
+    //   (err) => {
+    //     this.error = err.error;
+    //   }
+    // )
   }
 
 }

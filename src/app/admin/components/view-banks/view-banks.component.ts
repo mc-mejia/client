@@ -8,7 +8,7 @@ import { ProfileService } from 'src/app/profile/services/profile.service';
   styleUrls: ['./view-banks.component.css']
 })
 export class ViewBanksComponent implements OnInit {
-
+  //need: to update service calls
   banks: any = {}
 
   constructor(private profileService: ProfileService, private router: Router) { }

@@ -9,6 +9,7 @@ import { ProfileService } from 'src/app/profile/services/profile.service';
 })
 export class ViewProfilesComponent implements OnInit {
 
+  //need: to update service calls
   profiles : any = {};
 
   constructor(private profileService: ProfileService, private router: Router) { }

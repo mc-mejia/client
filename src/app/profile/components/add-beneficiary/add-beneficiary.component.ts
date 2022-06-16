@@ -10,15 +10,19 @@ import { ProfileService } from '../../services/profile.service';
 })
 export class AddBeneficiaryComponent implements OnInit {
 
-  beneficiary: Beneficiary = new Beneficiary();
+  //new service method requires two parameters now
+  // need: customerid and beneficiary request body
+  beneficiary: any = {};
+  id: any = {};
   error: any = {};
   constructor(private profileService: ProfileService, private router: Router) { }
 
   ngOnInit(): void {
+    this.id = localStorage.getItem('id');
   }
 
   createBeneficiarySubmit(){
-    this.profileService.createBeneficiary(this.beneficiary).subscribe(
+    this.profileService.createBeneficiary(this.beneficiary, this.id).subscribe(
       (res) => {
         
         this.router.navigate(['/dashboard']);
