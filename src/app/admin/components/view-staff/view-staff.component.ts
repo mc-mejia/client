@@ -9,8 +9,10 @@ import { StaffService } from 'src/app/users/services/staff.service';
   styleUrls: ['./view-staff.component.css']
 })
 export class ViewStaffComponent implements OnInit {
+  //done, Maria
 
   staffList: any[] = [];
+  error: any = {};
   constructor(private staffService: StaffService, private router: Router) { }
 
   ngOnInit(): void {
@@ -22,16 +24,19 @@ export class ViewStaffComponent implements OnInit {
     );
   }
 
-  deleteStaff(id: any){
-    this.staffService.deleteStaff(id).subscribe(
-      (res) => {
-        console.log(JSON.stringify(res));
-        this.ngOnInit();
-      },
-      (err) => {
-        console.log(JSON.stringify(err));
-      }
-    )
-  }
 
+  toggleStaff(staff: any){
+    //TODO
+      this.staffService.toggleStaff(staff).subscribe(
+        (res) => {
+          console.log('Staff toggled');
+          this.ngOnInit();
+        },
+        (err) => {
+          this.error = err;
+          console.log(JSON.stringify(this.error));
+        }
+      );
+
+}
 }
