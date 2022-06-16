@@ -20,16 +20,17 @@ export class DashboardComponent implements OnInit {
   //we want this rest call done instantly
   //1. object created 2. constructor called 3.ngOnInit
   ngOnInit(): void {
-    this.profileService.getProfile().subscribe(
-      (response)=>{
-        this.profile = response;
-      },
-      (err) =>{
-        console.log(JSON.stringify(err));
-        this.error = err.error;
-        this.profile = null;
-      }
-      );
+    // this.profileService.getProfile().subscribe(
+    //   (response)=>{
+    //     this.profile = response;
+    //   },
+    //   (err) =>{
+    //     console.log(JSON.stringify(err));
+    //     this.error = err.error;
+    //     this.profile = null;
+    //   }
+    //   );
+
   }
 
   deleteExperience(expId : string): void{

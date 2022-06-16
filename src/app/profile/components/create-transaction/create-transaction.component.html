@@ -36,7 +36,7 @@
           </div>
           <div class="d-block invalid-feedback">{{ error.type }}</div>
           <small class="d-block pb-3">* Select Beneficiary</small>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <select
               class="form-control form-control-lg"
               name="type"
@@ -45,9 +45,19 @@
               <option *ngFor="let b of profile.ben" [value]="b._id">{{b.beneficiaryId}}</option>
 
             </select>
-          </div>
-          <small class="d-block pb-3">* Select Your Bank Account</small>
+          </div> -->
           <div class="form-group">
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              placeholder="Ex: 123ab456."
+              name="benId"
+              value="benId"
+              [(ngModel)]="transaction.benId"
+            />
+          </div>
+          <small class="d-block pb-3">* Your Bank Account ID</small>
+          <!-- <div class="form-group">
             <select
               class="form-control form-control-lg"
               name="bankId"
@@ -56,6 +66,16 @@
               <option *ngFor="let b of profile.banks" [value]="b._id">{{b.label}}</option>
 
             </select>
+          </div> -->
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              placeholder="Ex: 123ab456."
+              name="bankId"
+              value="bankId"
+              [(ngModel)]="transaction.bankId"
+            />
           </div>
           <small class="d-block pb-3">Reason</small>
           <div class="form-group">
