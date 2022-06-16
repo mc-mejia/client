@@ -1,0 +1,52 @@
+<section class="container">
+    <div>
+        <h2 class="my-2">
+            <div class="buttons">
+              <a href="/admin/staff" class="btn btn-light"
+                > View Staff</a
+              >
+              <a href="/admin/profiles" class="btn btn-light"
+                > View Customers</a
+              >
+              <a href="/admin/banks" class="btn btn-light"
+                > View Banks</a
+              >
+              <a href="/admin/add" class="btn btn-light"
+                > Add Staff</a
+              >
+            </div>
+      
+          </h2>
+        <h4 class="my-3" *ngIf="profiles.length == 0"> There is no content to display. </h4>
+        <table class="table" *ngIf="profiles.length > 0">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>ID</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let p of profiles">
+                <td>
+                    {{p.handle}}
+                </td>
+                <td>
+                    {{p._id}}
+                </td>
+                <td>
+                    <label class="switch">
+                      <input type="checkbox" checked (change)="deleteUser(p.user._id)">
+                      <span class="slider"></span>
+                    </label>
+                    
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    
+    </div>
+    </section>
+    
+    
+    

@@ -1,0 +1,54 @@
+<section class="container">
+<div>
+    <h2 class="my-2">
+        <div class="buttons">
+          <a href="/admin/staff" class="btn btn-light"
+            > View Staff</a
+          >
+          <a href="/admin/profiles" class="btn btn-light"
+            > View Customers</a
+          >
+          <a href="/admin/banks" class="btn btn-light"
+            > View Banks</a
+          >
+          <a href="/admin/add" class="btn btn-light"
+            > Add Staff</a
+          >
+        </div>
+  
+      </h2>
+    <h2 class="my-2">All Bank Accounts</h2>
+    <h4 class="my-3" *ngIf="banks.length == 0"> There is no content to display. </h4>
+    <table class="table" *ngIf="banks.length > 0">
+        <thead>
+          <tr>
+            <th>Balance</th>
+            <th>Label</th>
+            <th> Account Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let b of banks; index as in">
+            
+            <td *ngIf="b != null">
+                {{b.banks[in].balance}}
+            </td>
+            <td *ngIf="b != null">
+              {{b.banks[in].label}}
+            </td>
+            <td *ngIf="b != null && b.banks[in].label != null">
+              {{b.banks[in].type}}
+              <button  (click)="toggleBank(b._id)" style="float: right;" >
+                <i class="fas fa-trash"></i>
+            </button>
+            </td>
+        
+          </tr>
+        </tbody>
+      </table>
+
+</div>
+</section>
+
+
+

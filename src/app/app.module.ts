@@ -1,4 +1,5 @@
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -9,7 +10,7 @@ import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, CommonModule, CoreModule, FormsModule, AppRoutingModule],
+  imports: [BrowserModule, HttpClientModule, CommonModule, CoreModule, FormsModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent], //entry component
 })

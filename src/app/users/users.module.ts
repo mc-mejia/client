@@ -8,9 +8,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './services/auth.service';
 import { httpInterceptors } from '../shared/interceptors';
+import { StaffService } from './services/staff.service';
 @NgModule({
   declarations: [RegisterComponent, LoginComponent],
   imports: [CommonModule, FormsModule, HttpClientModule, UsersRoutingModule],
-  providers: [AuthService, httpInterceptors],
+  providers: [StaffService, AuthService, httpInterceptors],
 })
 export class UsersModule {}

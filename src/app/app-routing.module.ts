@@ -17,6 +17,11 @@ const routes: Routes = [
       import('./users/users.module').then((m) => m.UsersModule), //to load user module dynamically  ===>()Class.forName() in java
   },
   {
+    path: 'admin',
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule), //to load user module dynamically  ===>()Class.forName() in java
+  },
+  {
     path: 'dashboard',
     loadChildren: () =>
       import('./dashboard/dashboard.module').then((m) => m.DashboardModule), //to load user module dynamically  ===>()Class.forName() in java

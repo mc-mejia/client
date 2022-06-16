@@ -1,0 +1,55 @@
+<section class="container">
+  <h2 class="my-2">
+    <div class="buttons">
+      <a href="/admin/staff" class="btn btn-light"
+        > View Staff</a
+      >
+      <a href="/admin/profiles" class="btn btn-light"
+        > View Customers</a
+      >
+      <a href="/admin/banks" class="btn btn-light"
+        > View Banks</a
+      >
+      <a href="/admin/add" class="btn btn-light"
+        > Add Staff</a
+      >
+    </div>
+
+  </h2>
+    <p class="lead"><i class="fas fa-user"></i> New Staff Account</p>
+    <form class="form" (ngSubmit)="staffRegisterSubmit()">
+      <div class="form-group">
+        <input
+          type="text"
+          placeholder="Name"
+          name="staffname"
+          required
+          [(ngModel)]="staff.staffname"
+        />
+      </div>
+      <div class="form-group">
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+          required
+          [(ngModel)]="staff.password"
+        />
+      </div>
+      <div class="form-group">
+        <select
+          class="form-control form-control-lg"
+          name="type"
+          [(ngModel)]="staff.type"
+        >
+          <option value="0">* Select Account Type</option>
+          <option value="STAFF">Staff</option>
+          <option value="ADMIN">Admin</option>
+
+        </select>
+
+      </div>
+      <input type="submit" class="btn btn-primary" value="StaffRegister" />
+    </form>
+  </section>
+  

@@ -1,28 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { Login } from '../../models/login';
-import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { Staff } from 'src/app/users/models/staff';
+import { StaffService } from 'src/app/users/services/staff.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  login: Login = new Login();
+
+  staff: Staff = new Staff();
   error: any = {};
-  constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit(): void {}
+  constructor(private staffService: StaffService, private router: Router) { }
 
+  ngOnInit(): void {
+  }
   loginSubmit() {
-    console.log("Login object" + JSON.stringify(this.login));
-    this.authService.loginUser(this.login).subscribe(
+    console.log("Login object" + JSON.stringify(this.staff));
+    this.staffService.loginStaff(this.staff).subscribe(
       (res) => {
         console.log(res.token);
         localStorage.setItem('id', res._id);
         localStorage.setItem('token', res.token);
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['/admin/staff']);
       },
       (err) => {
         console.log(JSON.stringify(err));
@@ -30,4 +32,5 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+
 }

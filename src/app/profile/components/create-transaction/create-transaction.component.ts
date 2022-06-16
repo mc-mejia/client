@@ -58,7 +58,7 @@ export class CreateTransactionComponent implements OnInit {
       (res) =>{
         console.log(JSON.stringify(this.bankAccount));
         this.profileService.deleteBank(c._id).subscribe();
-        //window.location.reload();
+        this.router.navigate(['/dashboard']);
       },
       (err) => {}
     );

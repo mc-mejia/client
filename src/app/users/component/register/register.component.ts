@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
     console.log(JSON.stringify(this.register));
     this.authService.registerUser(this.register).subscribe((res) => {
       console.log(JSON.stringify(res));
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/users/login']);
     });
   }
 }
