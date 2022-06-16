@@ -21,7 +21,7 @@ export class CreateProfile {
     // education: Education[];
  
     dob:string;
-    handle: string;
+    username: string;
     question: string;
     answer: string;
     ssn: string;
@@ -31,7 +31,6 @@ export class CreateProfile {
     ben: Beneficiary[];
     user: any;
     approved:boolean = true;
-    email: string;
     password: string;
     password2: string;
   }
