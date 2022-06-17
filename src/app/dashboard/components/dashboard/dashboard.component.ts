@@ -7,7 +7,7 @@ import { StaffService } from 'src/app/users/services/staff.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
   //DONE Maria
@@ -15,10 +15,14 @@ export class DashboardComponent implements OnInit {
   //the first things that get loaded once a user logs in
   //need: service method calls to be updated to call getCustomerAccountById (backend method)
   //      instead of getProfile (mongo backend) and the proper delete methods
-  constructor(private router: Router, private profileService: ProfileService, private staffService: StaffService) { }
+  constructor(
+    private router: Router,
+    private profileService: ProfileService,
+    private staffService: StaffService
+  ) {}
 
   id: any = {};
-  profile : any = {};
+  profile: CreateProfile = new CreateProfile();
   error: any = {};
 
   //we want this rest call done instantly
@@ -26,27 +30,26 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.id = localStorage.getItem('id');
     this.staffService.getCustomerById(this.id).subscribe(
-      (response) =>{
-        this.profile = response;
-      },
-      (err) =>{
-        console.log(JSON.stringify(err));
-        this.error = err.error;
-        this.profile = null;
-      }
-    );
-
-  }
-
-  deleteBeneficiary(benId: string): void{
-    this.profileService.deleteBeneficiary(benId).subscribe(
-      (res) => {
-        console.log("Deleted " + JSON.stringify(res));
+      (response) => {
+        this.profile = response as CreateProfile;
       },
       (err) => {
-        this.profile = null;
+        console.log(JSON.stringify(err));
+        this.error = err.error;
+        this.profile = new CreateProfile();
       }
-    )
+    );
+    console.log(JSON.stringify(this.profile));
   }
 
+  deleteBeneficiary(benId: string): void {
+    this.profileService.deleteBeneficiary(benId).subscribe(
+      (res) => {
+        console.log('Deleted ' + JSON.stringify(res));
+      },
+      (err) => {
+        this.profile = new CreateProfile();
+      }
+    );
+  }
 }

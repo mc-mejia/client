@@ -8,7 +8,7 @@
     </p>
 
     <div>{{ error.noprofile }}</div>
-
+    <div>{{ profile.accounts | json }}</div>
     <app-dashboard-action></app-dashboard-action>
     <!-- <app-display-exp [exp]="profile.experience" (expId)="deleteExperience($event)"></app-display-exp>
     <app-display-edu [edu]="profile.education" (eduId)="deleteEducation($event)"></app-display-edu> -->
@@ -17,10 +17,7 @@
       [profile]="profile"
       (benId)="deleteBeneficiary($event)"
     ></app-display-ben>
-    <app-display-bank
-      [banks]="profile.accounts"
-      [profile]="profile"
-    ></app-display-bank>
+    <app-display-bank [profile]="profile"></app-display-bank>
     <app-display-transactions
       [transactions]="profile.accounts"
       [profile]="profile"

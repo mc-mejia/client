@@ -1,32 +1,29 @@
 <div>
-    <h2 class="my-2">My Bank Accounts</h2>
-    <h4 class="my-3" *ngIf="banks.length == 0"> There is no content to display. </h4>
-    <table class="table" *ngIf="banks.length > 0">
-        <thead>
-          <tr>
-            <th>Balance</th>
-            <th>Label</th>
-            <th> Account Type</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let b of banks">
-            <td>
-                {{b.balance}}
-            </td>
-            <td>
-              {{b.label}}
-            </td>
-            <td>
-              {{b.type}}
-              <!-- <button  (click)="deleteBank(b._id)" style="float: right;" >
+  <h2 class="my-2">My Bank Accounts</h2>
+  <h4 class="my-3" *ngIf="banks">There is no content to display.</h4>
+  <table class="table" *ngIf="banks.length > 0">
+    <thead>
+      <tr>
+        <th>Balance</th>
+        <th>Label</th>
+        <th>Account Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let b of banks">
+        <td>
+          {{ b | async }}
+        </td>
+        <td>
+          {{ b.label | async }}
+        </td>
+        <td>
+          {{ b.type | async }}
+          <!-- <button  (click)="deleteBank(b._id)" style="float: right;" >
                 <i class="fas fa-trash"></i>
             </button> -->
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-
-
