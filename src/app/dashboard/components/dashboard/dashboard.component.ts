@@ -54,7 +54,7 @@ export class DashboardComponent implements OnInit {
         console.log('Deleted ' + JSON.stringify(res));
       },
       (err) => {
-        this.profile = new CreateProfile();
+        //this.profile = new CreateProfile();
       }
     );
   }

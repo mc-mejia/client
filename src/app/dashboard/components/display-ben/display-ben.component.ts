@@ -30,6 +30,6 @@ export class DisplayBenComponent implements OnInit {
 
   deleteBeneficiary(id: string): void {
     this.benId.emit(id);
-    window.location.reload();
+    //window.location.reload();
   }
 }

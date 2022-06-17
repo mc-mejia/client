@@ -57,17 +57,18 @@
             />
           </div>
           <small class="d-block pb-3">* Your Bank Account ID</small>
-          <!-- <div class="form-group">
+          <div class="form-group">
             <select
               class="form-control form-control-lg"
-              name="bankId"
-              [(ngModel)]="transaction.bankId"
+              name="senderId"
+              [(ngModel)]="transaction.senderId"
             >
-              <option *ngFor="let b of profile.banks" [value]="b._id">{{b.label}}</option>
-
+              <option *ngFor="let b of banks" [value]="b.accountId">
+                {{ b.label }}
+              </option>
             </select>
-          </div> -->
-          <div class="form-group">
+          </div>
+          <!-- <div class="form-group">
             <input
               type="text"
               class="form-control form-control-lg"
@@ -76,7 +77,7 @@
               value="bankId"
               [(ngModel)]="transaction.senderId"
             />
-          </div>
+          </div> -->
           <small class="d-block pb-3">Reason</small>
           <div class="form-group">
             <input

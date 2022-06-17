@@ -15,7 +15,10 @@
         </td>
         <td>
           {{ b.bankAccountNo }}
-          <button (click)="deleteBeneficiary(b._id)" style="float: right">
+          <button
+            (click)="deleteBeneficiary(b.beneficiaryId)"
+            style="float: right"
+          >
             <i class="fas fa-trash"></i>
           </button>
         </td>

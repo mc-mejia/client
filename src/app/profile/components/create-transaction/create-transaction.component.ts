@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { StaffService } from 'src/app/users/services/staff.service';
 import { CreateProfile } from '../../model/createprofile';
 import { Transaction } from '../../model/transaction';
 import { ProfileService } from '../../services/profile.service';
@@ -19,16 +20,21 @@ export class CreateTransactionComponent implements OnInit {
   // bankAccount: any = {};
   transaction: Transaction = new Transaction();
   error: any = {};
+  banks: any[] = [];
 
-  constructor(private profileService: ProfileService, private router: Router) {}
+  constructor(
+    private staffService: StaffService,
+    private profileService: ProfileService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    // this.profileService.getProfile().subscribe(
-    //   (res) =>{
-    //     this.profile = res;
-    //   },
-    //   (err) => {}
-    // );
+    this.profileService.getBanks(localStorage.getItem('id')).subscribe(
+      (res) => {
+        this.banks = res;
+      },
+      (err) => {}
+    );
   }
 
   createTransactionSubmit() {
@@ -37,6 +43,7 @@ export class CreateTransactionComponent implements OnInit {
     this.profileService.transfer(this.transaction).subscribe(
       (res) => {
         console.log(JSON.stringify(this.transaction));
+        this.router.navigate(['/dashboard']);
       },
       (err) => {
         if (err.error != null) this.error = err.error;

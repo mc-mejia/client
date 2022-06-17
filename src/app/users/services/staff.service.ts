@@ -63,10 +63,10 @@ export class StaffService {
   }
 
   loginStaff(staff: Staff): Observable<any> {
-    return this.httpClient.post(this.api + 'login', staff);
+    return this.httpClient.post(this.api + 'authenticate', staff);
   }
 
-  toggleStaff(staff: Staff){
+  toggleStaff(staff: any) {
     return this.httpClient.put(this.api + 'staff', staff);
   }
 }

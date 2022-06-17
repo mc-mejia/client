@@ -30,12 +30,13 @@ export class ViewBanksComponent implements OnInit {
     );
   }
 
-  toggleBank(bankAccount: any) {
+  approveBank(bankAccount: any) {
     this.staffService.approveBankAccount(bankAccount).subscribe(
       (res) => {
         console.log(JSON.stringify(res));
         this.banks = res;
         console.log(JSON.stringify(this.banks));
+        window.location.reload();
       },
       (err) => {
         console.log(err.console.error());

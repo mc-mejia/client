@@ -4,11 +4,11 @@
       <div class="buttons">
         <a href="/admin/staff" class="btn btn-light"> View Staff</a>
         <a href="/admin/profiles" class="btn btn-light"> View Customers</a>
-        <a href="/admin/banks" class="btn btn-light"> View Banks</a>
+        <a href="/admin/banks" class="btn btn-light"> Approve Banks</a>
         <a href="/admin/add" class="btn btn-light"> Add Staff</a>
       </div>
     </h2>
-    <h2 class="my-2">All Bank Accounts</h2>
+    <h2 class="my-2">Unapproved Bank Accounts</h2>
     <h4 class="my-3" *ngIf="banks.length == 0">
       There is no content to display.
     </h4>
@@ -21,18 +21,26 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let b of banks; index as in">
+        <tr *ngFor="let b of banks">
           <td *ngIf="b != null">
-            {{ b.banks[in].balance }}
+            {{ b.balance }}
           </td>
           <td *ngIf="b != null">
-            {{ b.banks[in].label }}
+            {{ b.label }}
           </td>
-          <td *ngIf="b != null && b.banks[in].label != null">
-            {{ b.banks[in].type }}
-            <button (click)="toggleBank(b)" style="float: right">
+          <td *ngIf="b != null">
+            {{ b.bankAccountType }}
+            <!-- <button (click)="toggleBank(b)" style="float: right">
               <i class="fas fa-trash"></i>
-            </button>
+            </button> -->
+            <label class="switch" style="float: right">
+              <input
+                type="checkbox"
+                (change)="approveBank(b)"
+                [checked]="b.approve"
+              />
+              <span class="slider"></span>
+            </label>
           </td>
         </tr>
       </tbody>

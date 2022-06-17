@@ -24,7 +24,7 @@ export class ProfileService {
     return this.httpClient.post(this.customerapi + '/' + id + '/account', bank);
   }
 
-  getBanks(id: string): Observable<any> {
+  getBanks(id: any): Observable<any> {
     return this.httpClient.get(this.customerapi + '/' + id + '/account');
   }
 
