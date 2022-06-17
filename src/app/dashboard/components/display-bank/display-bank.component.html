@@ -1,6 +1,8 @@
 <div>
   <h2 class="my-2">My Bank Accounts</h2>
-  <h4 class="my-3" *ngIf="banks">There is no content to display.</h4>
+  <h4 class="my-3" *ngIf="banks.length == 0">
+    There is no content to display.
+  </h4>
   <table class="table" *ngIf="banks.length > 0">
     <thead>
       <tr>
@@ -12,13 +14,13 @@
     <tbody>
       <tr *ngFor="let b of banks">
         <td>
-          {{ b | async }}
+          {{ b.balance }}
         </td>
         <td>
-          {{ b.label | async }}
+          {{ b.label }}
         </td>
         <td>
-          {{ b.type | async }}
+          {{ b.bankAccountType }}
           <!-- <button  (click)="deleteBank(b._id)" style="float: right;" >
                 <i class="fas fa-trash"></i>
             </button> -->

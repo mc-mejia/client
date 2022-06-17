@@ -1,53 +1,35 @@
 <div>
-    <h2 class="my-2">Transaction History  
-      <button (click) = "toggleDisplay()"><i class="fa fa-eye"></i></button>   
-    </h2>
-    <div *ngIf="toDisplay">
-    
-    <h4 class="my-3" *ngIf="transactions.length == 0"> There is no content to display. </h4>
+  <h2 class="my-2">
+    Transaction History
+    <button (click)="toggleDisplay()"><i class="fa fa-eye"></i></button>
+  </h2>
+  <div *ngIf="toDisplay">
+    <h4 class="my-3" *ngIf="transactions.length == 0">
+      There is no content to display.
+    </h4>
     <table class="table" *ngIf="transactions.length > 0">
-        <thead>
-          <tr>
-            <th>Amount</th>
-            <th class="hide-sm">Type</th>
-            <th class="hide-sm">Sender</th>
-            <th class="hide-sm">Beneficiary</th>
-            <th class="hide-sm">Reason</th>
-            <th class="hide-sm">Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let t of transactions">
-            <td>{{t.amount}}</td>
-            <td class="hide-sm">{{t.type}}</td>
-            <td class="hide-sm">{{t.bankId}}</td>
-            <td class="hide-sm">{{t.benId}}</td>
-            <td class="hide-sm">{{t.reason}}</td>
-            <td class="hide-sm">
-              {{t.date| date: "MM-dd-YYY"}}
-            </td>
-
-          </tr>
-        </tbody>
-      </table>
-    </div>
+      <thead>
+        <tr>
+          <th>Amount</th>
+          <th>Type</th>
+          <th>Sender</th>
+          <th>Beneficiary</th>
+          <th>Reason</th>
+          <!-- <th class="hide-sm">Date</th> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let t of transactions">
+          <td>{{ t.transactionAmount }}</td>
+          <td>{{ t.transactionType }}</td>
+          <td>{{ t.senderId }}</td>
+          <td>{{ t.beneficiaryId }}</td>
+          <td>{{ t.reasonTransaction }}</td>
+          <!-- <td class="hide-sm">
+            {{ t.date | date: "MM-dd-YYY" }}
+          </td> -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  

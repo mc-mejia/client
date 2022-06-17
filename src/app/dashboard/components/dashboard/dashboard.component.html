@@ -12,14 +12,14 @@
     <app-dashboard-action></app-dashboard-action>
     <!-- <app-display-exp [exp]="profile.experience" (expId)="deleteExperience($event)"></app-display-exp>
     <app-display-edu [edu]="profile.education" (eduId)="deleteEducation($event)"></app-display-edu> -->
+    <app-display-bank [banks]="profile.accounts"></app-display-bank>
     <app-display-ben
-      [ben]="profile.ben"
+      [ben]="profile.beneficiaries"
       [profile]="profile"
       (benId)="deleteBeneficiary($event)"
     ></app-display-ben>
-    <app-display-bank [profile]="profile"></app-display-bank>
     <app-display-transactions
-      [transactions]="profile.accounts"
+      [transactions]="transactions"
       [profile]="profile"
     ></app-display-transactions>
 

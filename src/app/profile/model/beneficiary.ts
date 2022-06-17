@@ -1,4 +1,5 @@
 export class Beneficiary {
-    beneficiaryId: string;
-    bankAccountNumber : string;
+  beneficiaryId: string;
+  bankAccountNo: string;
+  label: string;
 }

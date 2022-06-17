@@ -8,11 +8,11 @@ import { ProfileService } from '../../services/profile.service';
 @Component({
   selector: 'app-create-transaction',
   templateUrl: './create-transaction.component.html',
-  styleUrls: ['./create-transaction.component.css']
+  styleUrls: ['./create-transaction.component.css'],
 })
 export class CreateTransactionComponent implements OnInit {
   //Done - Maria
-  
+
   //new service method is called transfer and does most of the work for you
   //need: to simplify this component & possibly update html
   // profile: any;
@@ -20,7 +20,7 @@ export class CreateTransactionComponent implements OnInit {
   transaction: Transaction = new Transaction();
   error: any = {};
 
-  constructor(private profileService: ProfileService, private router: Router) { }
+  constructor(private profileService: ProfileService, private router: Router) {}
 
   ngOnInit(): void {
     // this.profileService.getProfile().subscribe(
@@ -31,19 +31,18 @@ export class CreateTransactionComponent implements OnInit {
     // );
   }
 
-  createTransactionSubmit(){
+  createTransactionSubmit() {
     console.log(JSON.stringify(this.transaction));
-    this.transaction.date = JSON.stringify(new Date().getDate());
+    // this.transaction.date = JSON.stringify(new Date().getDate());
     this.profileService.transfer(this.transaction).subscribe(
       (res) => {
         console.log(JSON.stringify(this.transaction));
       },
-      (err) =>{
-        if(err.error != null) this.error = err.error;
+      (err) => {
+        if (err.error != null) this.error = err.error;
         else this.error = {};
       }
     );
-    
   }
 
   // updateUserBanks(transaction: any){
@@ -66,5 +65,4 @@ export class CreateTransactionComponent implements OnInit {
   //     (err) => {}
   //   );
   // }
-
 }

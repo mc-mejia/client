@@ -1,60 +1,55 @@
 <div class="add-bank">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 m-auto">
-          <a routerLink="/dashboard" class="btn btn-light"> Go Back </a>
-          <h1 class="display-4 text-center">Add Your New Bank</h1>
-          <p class="lead text-center">
-            All values marked with asterisk (*) are required
-          </p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 m-auto">
+        <a routerLink="/dashboard" class="btn btn-light"> Go Back </a>
+        <h1 class="display-4 text-center">Add Your New Bank</h1>
+        <p class="lead text-center">
+          All values marked with asterisk (*) are required
+        </p>
 
-         
-          <form (ngSubmit)="createBankSubmit()">
-            <small class="d-block pb-3">* Personal bank label</small>
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control form-control-lg"
-                placeholder="Ex: Maria's Checkings"
-                name="label"
-                required
-                [(ngModel)]="bank.label"
-              />
-            </div>
-            <div class="d-block invalid-feedback">{{ error.label }}</div>
-            <small class="d-block pb-3">* Starter Balance</small>
-            <div class="form-group">
-              <input
-                type="text"
-                class="form-control form-control-lg"
-                placeholder="Ex: 1000"
-                name="balance"
-                required
-                [(ngModel)]="bank.balance"
-              />
-            </div>
-            <div class="d-block invalid-feedback">{{ error.balance }}</div>
+        <form (ngSubmit)="createBankSubmit()">
+          <small class="d-block pb-3">* Personal bank label</small>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              placeholder="Ex: Maria's Checkings"
+              name="label"
+              required
+              [(ngModel)]="bank.label"
+            />
+          </div>
+          <div class="d-block invalid-feedback">{{ error.label }}</div>
+          <small class="d-block pb-3">* Starter Balance</small>
+          <div class="form-group">
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              placeholder="Ex: 1000"
+              name="balance"
+              required
+              [(ngModel)]="bank.balance"
+            />
+          </div>
+          <div class="d-block invalid-feedback">{{ error.balance }}</div>
 
-            <small class="d-block pb-3">* Bank Type</small>
-            <div class="form-group">
-              <select
-                class="form-control form-control-lg"
-                name="question"
-                [(ngModel)]="bank.type"
-              >
-                <option value="0">Select Security Question</option>
-                <option value="Savings">Savings</option>
-                <option value="Checkings">Checkings</option>
-              </select>
+          <small class="d-block pb-3">* Bank Type</small>
+          <div class="form-group">
+            <select
+              class="form-control form-control-lg"
+              name="question"
+              [(ngModel)]="bank.bankAccountType"
+            >
+              <option value="0">Select Security Question</option>
+              <option value="Savings">Savings</option>
+              <option value="Checkings">Checkings</option>
+            </select>
+          </div>
 
-            </div>
-           
-            <input type="submit" class="btn btn-info btn-block mt-4" />
-          </form>
-        </div>
+          <input type="submit" class="btn btn-info btn-block mt-4" />
+        </form>
       </div>
     </div>
   </div>
-  
-  
-
+</div>

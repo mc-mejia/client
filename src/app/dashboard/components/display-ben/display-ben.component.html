@@ -1,28 +1,25 @@
 <div>
   <h2 class="my-2">My Beneficiaries</h2>
-  <h4 class="my-3" *ngIf="ben.length == 0 "> There is no content to display. </h4>
+  <h4 class="my-3" *ngIf="ben.length == 0">There is no content to display.</h4>
   <table class="table" *ngIf="ben.length > 0">
-      <thead>
-        <tr>
-          <th>Beneficiary Name</th>
-          <th>Account ID</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let b of ben">
-          <td>
-              {{b.beneficiaryId}}
-             
-          </td>
-          <td>
-            {{b._id}}
-            <button  (click)="deleteBeneficiary(b._id)" style="float: right;" >
-              <i class="fas fa-trash"></i>
+    <thead>
+      <tr>
+        <th>Beneficiary Name</th>
+        <th>Account ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let b of ben">
+        <td>
+          {{ b.label }}
+        </td>
+        <td>
+          {{ b.bankAccountNo }}
+          <button (click)="deleteBeneficiary(b._id)" style="float: right">
+            <i class="fas fa-trash"></i>
           </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-
-

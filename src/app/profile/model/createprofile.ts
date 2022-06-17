@@ -27,7 +27,7 @@ export class CreateProfile {
   phoneNo: string;
   status: string;
   accounts: Bank[];
-  ben: Beneficiary[];
+  beneficiaries: Beneficiary[];
   user: any;
   approved: boolean = true;
   password: string;

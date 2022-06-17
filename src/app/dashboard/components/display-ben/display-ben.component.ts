@@ -8,35 +8,28 @@ import { ProfileService } from 'src/app/profile/services/profile.service';
 @Component({
   selector: 'app-display-ben',
   templateUrl: './display-ben.component.html',
-  styleUrls: ['./display-ben.component.css']
+  styleUrls: ['./display-ben.component.css'],
 })
 export class DisplayBenComponent implements OnInit {
   //this one looks good, no service calls to update
 
+  @Input('ben')
+  public ben: any;
 
-  @Input("ben") public ben: any;
-
-  @Input("profile")
+  @Input('profile')
   profile: CreateProfile = new CreateProfile();
 
-
   @Output('benId')
-  benId: EventEmitter<string>= new EventEmitter<string>();
+  benId: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(private profileService: ProfileService, private router: Router) { 
-    
-  }
+  constructor(private profileService: ProfileService, private router: Router) {}
 
   ngOnInit(): void {
-    this.ben = this.profile.ben;
-    
+    //this.ben = this.profile.beneficiaries;
   }
 
-  deleteBeneficiary(id: string):void{
+  deleteBeneficiary(id: string): void {
     this.benId.emit(id);
     window.location.reload();
   }
-
-
-
 }

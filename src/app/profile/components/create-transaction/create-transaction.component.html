@@ -11,14 +11,14 @@
         <form (ngSubmit)="createTransactionSubmit()">
           <small class="d-block pb-3">* Amount </small>
           <div class="form-group">
-            <input 
+            <input
               type="text"
               class="form-control form-control-lg"
               placeholder="* 100"
-              name="amount"
+              name="transactionAmount"
               value="mytransactionamount"
               required
-              [(ngModel)]="transaction.amount"
+              [(ngModel)]="transaction.transactionAmount"
             />
           </div>
           <div class="d-block invalid-feedback">{{ error.amount }}</div>
@@ -26,8 +26,8 @@
           <div class="form-group">
             <select
               class="form-control form-control-lg"
-              name="type"
-              [(ngModel)]="transaction.type"
+              name="transactionType"
+              [(ngModel)]="transaction.transactionType"
             >
               <option value="0">* Select Transaction Type</option>
               <option value="Credit">Credit</option>
@@ -51,9 +51,9 @@
               type="text"
               class="form-control form-control-lg"
               placeholder="Ex: 123ab456."
-              name="benId"
+              name="beneficiaryId"
               value="benId"
-              [(ngModel)]="transaction.benId"
+              [(ngModel)]="transaction.beneficiaryId"
             />
           </div>
           <small class="d-block pb-3">* Your Bank Account ID</small>
@@ -72,26 +72,25 @@
               type="text"
               class="form-control form-control-lg"
               placeholder="Ex: 123ab456."
-              name="bankId"
+              name="senderId"
               value="bankId"
-              [(ngModel)]="transaction.bankId"
+              [(ngModel)]="transaction.senderId"
             />
           </div>
           <small class="d-block pb-3">Reason</small>
           <div class="form-group">
-              <input
-                type="text"
-                class="form-control form-control-lg"
-                placeholder="Rent, Retail, Savings, etc."
-                name="reason"
-                value="Reason"
-                [(ngModel)]="transaction.reason"
-              />
-            </div>
-       
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              placeholder="Rent, Retail, Savings, etc."
+              name="reasonTransaction"
+              value="Reason"
+              [(ngModel)]="transaction.reasonTransaction"
+            />
+          </div>
+
           <div class="d-block invalid-feedback">{{ error.reason }}</div>
 
-         
           <input type="submit" class="btn btn-info btn-block mt-4" />
         </form>
       </div>

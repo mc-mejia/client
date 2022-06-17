@@ -12,10 +12,11 @@ import { StaffService } from 'src/app/users/services/staff.service';
 export class DisplayBankComponent implements OnInit {
   //this one looks good, no service calls to update
 
+  @Input('banks')
   banks: any = {};
 
-  @Input('profile')
-  profile: any;
+  // @Input('profile')
+  // profile: any;
 
   @Output('delete')
   bankId: EventEmitter<string> = new EventEmitter<string>();
@@ -27,9 +28,9 @@ export class DisplayBankComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.banks);
-    this.banks = this.profile.accounts;
-    console.log(this.banks);
+    // console.log(this.banks);
+    // this.banks = this.profile.accounts;
+    // console.log(this.banks);
     // let id: string = localStorage.getItem('id') as string;
     // this.profileService.getBanks(id).subscribe(
     //   (res) => {

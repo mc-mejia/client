@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { CreateProfile } from 'src/app/profile/model/createprofile';
 import { Transaction } from 'src/app/profile/model/transaction';
 import { ProfileService } from 'src/app/profile/services/profile.service';
 import { StaffService } from 'src/app/users/services/staff.service';
@@ -7,30 +8,35 @@ import { StaffService } from 'src/app/users/services/staff.service';
 @Component({
   selector: 'app-display-transactions',
   templateUrl: './display-transactions.component.html',
-  styleUrls: ['./display-transactions.component.css']
+  styleUrls: ['./display-transactions.component.css'],
 })
 export class DisplayTransactionsComponent implements OnInit {
   //Done - Maria
-  
+
   //transfer methods in this component were for testing purposes only
   //need: to clean this file up and remove methods that already exist
   //      in create-transaction component
 
   id: any = {};
-  @Input("profile")
-  profile: any;
+  @Input('profile')
+  profile: CreateProfile;
 
-  @Input("transactions")
+  @Input('transactions')
   transactions: any[] = [];
 
   error: any = {};
-  toDisplay:boolean = false;
+  toDisplay: boolean = false;
 
-  constructor(private profileService: ProfileService, private staffService: StaffService, private router: Router) { }
+  constructor(
+    private profileService: ProfileService,
+    private staffService: StaffService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-     this.id = localStorage.getItem('id');
-     console.log(this.id);
+    this.id = localStorage.getItem('id');
+    console.log(this.id);
+    //this.loadTransactions();
     // this.staffService.getCustomerById(this.id).subscribe(
     //   (res) => {
     //     this.profile = res;
@@ -43,8 +49,17 @@ export class DisplayTransactionsComponent implements OnInit {
     // )
   }
 
-  toggleDisplay(){
+  toggleDisplay() {
     this.toDisplay = !this.toDisplay;
+  }
+
+  loadTransactions(): void {
+    console.log(JSON.stringify(this.profile.accounts));
+    this.profile.accounts.forEach((account) => {
+      account.transactions.forEach((transaction) => {
+        this.transactions.push(transaction);
+      });
+    });
   }
 
   // createTransactionSubmit(){
@@ -55,12 +70,12 @@ export class DisplayTransactionsComponent implements OnInit {
   //       this.updateUserBanks(this.transaction);
   //       this.trans.emit(JSON.stringify(this.transaction));
   //     },
-      // (err) =>{
-      //   if(err.error != null) this.error = err.error;
-      //   else this.error = {};
-      // }
+  // (err) =>{
+  //   if(err.error != null) this.error = err.error;
+  //   else this.error = {};
+  // }
   //   );
-    
+
   // }
 
   // updateUserBanks(transaction: any){
@@ -83,5 +98,4 @@ export class DisplayTransactionsComponent implements OnInit {
   //     (err) => {}
   //   );
   // }
-
 }

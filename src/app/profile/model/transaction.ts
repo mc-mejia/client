@@ -1,10 +1,10 @@
-import { Bank } from "./bank";
+import { Bank } from './bank';
 
 export class Transaction {
-    date: string ;
-    amount: string;
-    type: string;
-    bankId: string;
-    benId: string;
-    reason: string;
+  transactionDate: string;
+  transactionAmount: string;
+  transactionType: string;
+  senderId: string;
+  beneficiaryId: string;
+  reasonTransaction: string;
 }

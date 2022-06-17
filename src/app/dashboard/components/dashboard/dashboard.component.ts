@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { CreateProfile } from 'src/app/profile/model/createprofile';
+import { Transaction } from 'src/app/profile/model/transaction';
 import { ProfileService } from 'src/app/profile/services/profile.service';
 import { StaffService } from 'src/app/users/services/staff.service';
 
@@ -24,6 +26,7 @@ export class DashboardComponent implements OnInit {
   id: any = {};
   profile: CreateProfile = new CreateProfile();
   error: any = {};
+  transactions: Transaction[] = [];
 
   //we want this rest call done instantly
   //1. object created 2. constructor called 3.ngOnInit
@@ -32,6 +35,9 @@ export class DashboardComponent implements OnInit {
     this.staffService.getCustomerById(this.id).subscribe(
       (response) => {
         this.profile = response as CreateProfile;
+        this.loadTransactions();
+        console.log('transactions loaded::');
+        console.log(this.transactions);
       },
       (err) => {
         console.log(JSON.stringify(err));
@@ -51,5 +57,14 @@ export class DashboardComponent implements OnInit {
         this.profile = new CreateProfile();
       }
     );
+  }
+
+  loadTransactions(): void {
+    console.log(JSON.stringify(this.profile.accounts));
+    this.profile.accounts.forEach((account) => {
+      account.transactions.forEach((transaction) => {
+        this.transactions.push(transaction);
+      });
+    });
   }
 }
